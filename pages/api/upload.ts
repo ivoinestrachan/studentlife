@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import formidable from "formidable";
+import formidable from "formidable"
 import cloudinary from "cloudinary";
 import { File } from "@prisma/client";
 import { getServerSession } from "next-auth";
