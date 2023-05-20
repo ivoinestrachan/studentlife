@@ -1,22 +1,20 @@
-// schema.prisma
-
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
   previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider        = "postgresql"
+  url             = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl       = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 // Define the User model
 model User {
-  id                 Int               @id @default(autoincrement())
-  username           String            @unique
-  email              String            @unique
+  id                 Int                @id @default(autoincrement())
+  username           String             @unique
+  email              String             @unique
   videos             Video[]
   comments           Comment[]
   account            Account?
@@ -35,6 +33,7 @@ model Video {
   user               User       @relation(fields: [userId], references: [id])
   userId             Int
   comments           Comment[]
+  files              File[]
 }
 
 // Define the Comment model
@@ -52,7 +51,7 @@ model Account {
   id                 Int        @id @default(autoincrement())
   sessionId          String     @unique
   user               User       @relation(fields: [userId], references: [id])
-  userId             Int @unique
+  userId             Int       @unique
 }
 
 // Define the VerificationToken model
@@ -60,7 +59,7 @@ model VerificationToken {
   id                 Int        @id @default(autoincrement())
   token              String     @unique
   user               User       @relation(fields: [userId], references: [id])
-  userId             Int @unique
+  userId             Int       @unique
   createdAt          DateTime   @default(now())
 }
 
@@ -71,4 +70,14 @@ model Session {
   user               User       @relation(fields: [userId], references: [id])
   userId             Int
   createdAt          DateTime   @default(now())
+}
+
+// Define the File model
+model File {
+  url       String  @unique
+  mediaType String
+  width     Int
+  height    Int
+  video     Video?   @relation(fields: [videoId], references: [id], onDelete: Cascade)
+  videoId   Int?
 }
