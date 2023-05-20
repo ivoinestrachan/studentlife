@@ -1,5 +1,6 @@
 import { useSession, signOut, signIn } from "next-auth/react";
-
+import Image from "next/image";
+import logo from "../assets/logo.svg";
 const Navbar = () => {
   const { data: session } = useSession();
 
@@ -12,12 +13,17 @@ const Navbar = () => {
   };
 
   return (
-    <div className="flex items-center justify-between w-[90%] pt-5">
-      <div className="px-20">StudentLife</div>
-      {!session ? (
+    <div className="flex items-center justify-between bg-black h-20 pt-2">
+      <div className="flex items-center gap-2 px-20">
         <div>
+          <Image src={logo} alt="logo" width={35} height={35} />
+        </div>
+        <div className="text-white font-bold text-[24px]">StudentLife</div>
+      </div>
+      {!session ? (
+        <div className="pr-20">
           <button
-            className="bg-white text-black pl-5 pr-5 py-0.5 rounded-sm"
+            className="bg-blue-600 text-white pl-8 pr-8 py-1.5 rounded-md "
             type="button"
             onClick={handleSignIn}
           >
