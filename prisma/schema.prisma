@@ -12,21 +12,63 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
-model Post {
-  id        String     @default(cuid()) @id
-  title     String
-  content   String?
-  published Boolean @default(false)
-  author    User?   @relation(fields: [authorId], references: [id])
-  authorId  String?
+// Define the User model
+model User {
+  id                 Int               @id @default(autoincrement())
+  username           String            @unique
+  email              String            @unique
+  videos             Video[]
+  comments           Comment[]
+  account            Account?
+  verificationToken  VerificationToken?
+  sessions           Session[]
 }
 
-model User {
-  id            String       @default(cuid()) @id
-  name          String?
-  email         String?   @unique
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
-  updatedAt     DateTime  @updatedAt @map(name: "updated_at")
-  posts         Post[]
-  @@map(name: "users")
+// Define the Video model
+model Video {
+  id                 Int        @id @default(autoincrement())
+  title              String
+  description        String
+  url                String     @unique
+  upvotes            Int        @default(0)
+  downvotes          Int        @default(0)
+  user               User       @relation(fields: [userId], references: [id])
+  userId             Int
+  comments           Comment[]
+}
+
+// Define the Comment model
+model Comment {
+  id                 Int        @id @default(autoincrement())
+  content            String
+  user               User       @relation(fields: [userId], references: [id])
+  userId             Int
+  video              Video      @relation(fields: [videoId], references: [id])
+  videoId            Int
+}
+
+// Define the Account model
+model Account {
+  id                 Int        @id @default(autoincrement())
+  sessionId          String     @unique
+  user               User       @relation(fields: [userId], references: [id])
+  userId             Int @unique
+}
+
+// Define the VerificationToken model
+model VerificationToken {
+  id                 Int        @id @default(autoincrement())
+  token              String     @unique
+  user               User       @relation(fields: [userId], references: [id])
+  userId             Int @unique
+  createdAt          DateTime   @default(now())
+}
+
+// Define the Session model
+model Session {
+  id                 Int        @id @default(autoincrement())
+  token              String     @unique
+  user               User       @relation(fields: [userId], references: [id])
+  userId             Int
+  createdAt          DateTime   @default(now())
 }
