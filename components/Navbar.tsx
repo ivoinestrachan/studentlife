@@ -20,9 +20,9 @@ const Navbar = () => {
     <div className="flex items-center justify-between bg-black h-20 pt-2">
       <div className="flex items-center gap-2 px-20">
         <div>
-          <Image src={logo} alt="logo" width={35} height={35} />
+          <a href="/"><Image src={logo} alt="logo" width={35} height={35} /></a>
         </div>
-        <div className="text-white font-bold text-[24px]">StudentLife</div>
+        <a href="/"><div className="text-white font-bold text-[24px]">StudentLife</div></a>
       </div>
       {!session ? (
         <div className="pr-20">
