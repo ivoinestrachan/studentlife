@@ -11,7 +11,7 @@
 
 ## Project Description:
 
-StudentLife is a web-based platform designed to empower students (K-12) to showcase their academic accomplishments by uploading and sharing videos of their homework assignments, projects, and more. The platform fosters a supportive community of learners, allowing students to demonstrate their skills, creativity, and problem-solving abilities.
+A website called StudentLife targeted towards students in grades K–12 to upload videos of their projects, homework, and other assignments, while demonstrating their own methods of completion. The platform encourages students to show off their knowledge, originality, and problem-solving capabilities to help their peers.
 
 ## Technology Profile
 
