@@ -19,7 +19,7 @@ const index = () => {
           </div>
 
           <div>
-            <button className="border-2 border-black pr-5 pl-5 py-1 text-[22px] rounded-md">Explore Videos</button>
+          <a href="/feed"><button className="border-2 border-black pr-5 pl-5 py-1 text-[22px] rounded-md">Explore Videos</button></a>
           </div>
         </div>
       </div>
