@@ -1,4 +1,7 @@
 import { useSession, signOut, signIn } from "next-auth/react";
+import { getServerSession } from "next-auth";
+ import { authOptions } from "../pages/api/auth/[...nextauth]";
+ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import logo from "../assets/logo.svg";
 const Navbar = () => {
@@ -38,3 +41,18 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+export const getServerSideProps: GetServerSideProps = async ({ req, res }) => {
+  const session = await getServerSession(req, res, authOptions);
+  if (session) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+};
