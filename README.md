@@ -11,7 +11,7 @@
 
 ## Project Description:
 
-A website called StudentLife targeted towards students in grades K–12 to upload videos of their projects, homework, and other assignments, while demonstrating their own methods of completion. The platform encourages students to show off their knowledge, originality, and problem-solving capabilities to help their peers.
+A website called StudentLife targeted towards students in grades K–12 to upload videos of their projects, homework, and other assignments. Classmates can upload videos on our website to provide answers and explanations to help students that are hesitant to approach teachers. These peers can access the website for guidance and pick up on methods that others are using in the same classroom online while still promoting collaborative learning.
 
 ## Technology Profile
 
