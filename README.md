@@ -2,12 +2,6 @@
 
 ![image](https://github.com/ivoinestrachan/studentlife/assets/70272280/a75f0686-bfbc-47a9-b01b-bb64be60d064)
 
-
-
-
-
-
-
 Project Name: StudentLife
 Team Memebers: Gurtej Singh, Ivoine Strachan, Jeslyn Chang, and Saahil Rachh 
 
