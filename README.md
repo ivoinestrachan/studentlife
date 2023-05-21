@@ -36,7 +36,7 @@ over to Figma)*
 - TypeScript *(Coding Languages we used)*
 - GitHub *(Where all of the code is stored)*
 - Visual Studio Code *(Where all of the code is stored)*
-- Prisma *(IDE)* 
+- Prisma *(Database)* 
 
 **Data Base**
 
