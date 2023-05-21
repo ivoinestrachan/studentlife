@@ -1,4 +1,8 @@
+
 import { useSession, signOut, signIn } from "next-auth/react";
+import { getServerSession } from "next-auth";
+ import { authOptions } from "../pages/api/auth/[...nextauth]";
+ import { GetServerSideProps } from "next";
 import Image from "next/image";
 import logo from "../assets/logo.svg";
 const Navbar = () => {
@@ -16,9 +20,9 @@ const Navbar = () => {
     <div className="flex items-center justify-between bg-black h-20 pt-2">
       <div className="flex items-center gap-2 px-20">
         <div>
-        <a href="/"><Image src={logo} alt="logo" width={35} height={35} /></a>
+          <Image src={logo} alt="logo" width={35} height={35} />
         </div>
-        <a href="/"><div className="text-white font-bold text-[24px]">StudentLife</div></a>
+        <div className="text-white font-bold text-[24px]">StudentLife</div>
       </div>
       {!session ? (
         <div className="pr-20">
@@ -38,3 +42,7 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+
+ 
+

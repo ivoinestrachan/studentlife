@@ -4,7 +4,7 @@ import '@/styles/globals.css'
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app';
 
-function App({ Component, pageProps: { session, ...pageProps } }: any) {
+const App = ({ Component, pageProps }: AppProps) => {
   return (
     <SessionProvider session={pageProps.session}>
       <Navbar />
